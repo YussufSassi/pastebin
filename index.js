@@ -43,7 +43,7 @@ app.post("/paste", async (req, res) => {
             type: type
         }
     })
-    res.render("pasted", {url: `http://localhost:3000/paste/${paste.id}`})
+    res.render("pasted", {url: `https://yussuf-bin.vercel.app/paste/${paste.id}`})
 })
 
 
