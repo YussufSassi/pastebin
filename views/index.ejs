@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body class="bg-gray-100">
+    <%- include("partials/nav.ejs") %> 
+    <div class="container flex justify-content flex-col m-auto gap-4 mt-5">
+    <form action="/paste" enctype="application/x-www-form-urlencoded" method="POST">
+        <input type="text" class="w-full block border border-gray-200 rounded px-3 py-2 leading-6 focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" name="title" id="title" placeholder="Title" required>
+        <textarea required placeholder="Enter your paste content!" class=" mt-5 w-full block border border-gray-200 rounded px-3 py-2 focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" name="pasteContent" id="pasteContent" cols="30" rows="10"></textarea>
+        <label for="type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">What are you pasting?</label>
+        <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <option>info</option>
+            <option>text</option>
+            <option>markdown</option>
+            <option>code</option>
+        </select>
+       <input type="submit" value="Paste!" class=" mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 cursor-pointer transition-all">
+    
+        
+    </form>
+    </div>
+</body>
+</html>

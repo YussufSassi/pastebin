@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model paste {
+  id        String    @id @unique @default(cuid())
+  title     String
+  content   String    @db.Text
+  type      String    @default("text")
+  timestamp DateTime  @default(now())
+  comments  Comment[]
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  name      String   @default("Anonymous")
+  body      String
+  paste     paste    @relation(fields: [pasteId], references: [id])
+  pasteId   String
+  timestamp DateTime @default(now())
+}
